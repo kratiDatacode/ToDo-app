@@ -1,36 +1,56 @@
-const TableSection = () =>{
-    return(
-        <>
-         <section className="row mx-0 py-5 d-flex justify-content-center align-items-center">
-            <div className="col-md-10">
-                <div className="row mx-0 d-flex justify-content-center align-items-center">
-                    <div className="col-md-6 p-4 rounded shadow bg-white">
-                     <h3>Your Todos</h3>
-                     <table className="table table-bordered table-striped text-center align-middle">
-                        <thead className="table-primary" >
-                            <tr>
-                                <th>Sno.</th>
-                                <th>Title</th>
-                                <th>Description</th>
-                                <th>Priority</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>buy clothes</td>
-                                <td>for tomorrow event</td>
-                                <td>low</td>
-                            </tr>
-                        </tbody>
-                     </table>
-                    </div>
-                </div>
+import { FaEdit, FaTrash } from "react-icons/fa";
+
+const TableSection = ({ todos }) => {
+  return (
+    <>
+      <section className="row mx-0 py-5 d-flex justify-content-center align-items-center">
+        <div className="col-md-10">
+          <div className="row mx-0 d-flex justify-content-center align-items-center">
+            <div className="col-md-6 p-4 rounded shadow bg-white">
+              <h3>Your Todos</h3>
+              <table className="table table-bordered table-striped text-center align-middle">
+                <thead className="table-primary">
+                  <tr>
+                    <th>Sno.</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Priority</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {todos.length === 0 ? (
+                    <tr>
+                      <td colSpan="5" className="text-muted">
+                        No todos added yet.
+                      </td>
+                    </tr>
+                  ) : (
+                    todos.map((todo, index) => (
+                      <tr key={todos.id}>
+                        <td>{index + 1}</td>
+                        <td>{todo.title}</td>
+                        <td>{todo.description}</td>
+                        <td>{todo.priority}</td>
+                        <td>
+                          <button className="btn btn-sm btn-outline-primary me-2">
+                            <FaEdit />
+                          </button>
+                          <button className="btn btn-sm btn-outline-danger">
+                            <FaTrash />
+                          </button>
+                        </td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
             </div>
-         </section>
-        </>
-    )
-}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
 
 export default TableSection;
