@@ -13,12 +13,17 @@ const App = () => {
     console.log("Todo added :",newTodo)
   }
 
+  const handleDelete = (id) => {
+    const filteredTodos = todos.filter(todo => todo.id!==id);
+    setTodos(filteredTodos);
+  };
+
   return (
     <>
       <h1 className="text-center mt-3">Todo Manager</h1>
       <p className="text-center text-muted mb-0">Organize your tasks efficiently</p>
       <FormSection onSave={handleSave}/>
-      <TableSection todos={todos}/>
+      <TableSection todos={todos} onDelete={handleDelete}/>
     </>
   )
 }
