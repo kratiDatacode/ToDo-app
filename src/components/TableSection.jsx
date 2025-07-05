@@ -1,6 +1,6 @@
 import { FaEdit, FaTrash } from "react-icons/fa";
 
-const TableSection = ({ todos,onDelete}) => {
+const TableSection = ({ todos, onDelete , onEdit}) => {
   return (
     <>
       <section className="row mx-0 py-5 d-flex justify-content-center align-items-center">
@@ -33,7 +33,10 @@ const TableSection = ({ todos,onDelete}) => {
                         <td>{todo.description}</td>
                         <td>{todo.priority}</td>
                         <td>
-                          <button className="btn btn-sm btn-outline-primary me-2">
+                          <button 
+                          className="btn btn-sm btn-outline-primary me-2"
+                          onClick={()=>onEdit(todo)}
+                          >
                             <FaEdit />
                           </button>
                           <button
