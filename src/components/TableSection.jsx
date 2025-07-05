@@ -6,7 +6,7 @@ const TableSection = ({ todos, onDelete , onEdit}) => {
       <section className="row mx-0 py-5 d-flex justify-content-center align-items-center">
         <div className="col-md-10">
           <div className="row mx-0 d-flex justify-content-center align-items-center">
-            <div className="col-md-6 p-4 rounded shadow bg-white">
+            <div className="col-md-12 p-4 rounded shadow bg-white">
               <h3>Your Todos</h3>
               <table className="table table-bordered table-striped text-center align-middle">
                 <thead className="table-primary">

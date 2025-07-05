@@ -35,8 +35,14 @@ const App = () => {
       <p className="text-center text-muted mb-0">
         Organize your tasks efficiently
       </p>
-      <FormSection onSave={handleSave} editTodo={editTodo} />
+      <div className="row mx-0">
+        <div className="col-md-6">
+         <FormSection onSave={handleSave} editTodo={editTodo} />
+        </div>
+     <div className="col-md-6"> 
       <TableSection todos={todos} onDelete={handleDelete} onEdit={handleEdit} />
+     </div>
+      </div>
     </>
   );
 };
