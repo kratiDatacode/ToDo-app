@@ -1,9 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const FormSection = ({ onSave }) => {
+const FormSection = ({ onSave , editTodo }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [priority, setPriority] = useState("Medium");
+  
+  useEffect(()=>{
+    if(editTodo){
+      setTitle(editTodo.title);
+      setDescription(editTodo.description);
+      setPriority(editTodo.priority);
+    }else{
+      setTitle('');
+      setDescription('');
+      setPriority('Medium');
+    }
+  },[editTodo]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -63,12 +75,12 @@ const FormSection = ({ onSave }) => {
                   <option value="Low">Low</option>
                 </select>
                 <button type="submit" className="btn btn-primary">
-                  Add Todo
+                 {editTodo ? "Update Todo" : "Add Todo"}
                 </button>
               </form>
             </div>
           </div>
-        </div>
+        </div> 
       </section>
     </>
   );
