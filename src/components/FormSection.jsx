@@ -38,7 +38,7 @@ const FormSection = ({ onSave , editTodo }) => {
       <section className="row mx-0 py-5 d-flex justify-content-center align-items-center">
         <div className="col-md-10">
           <div className="row mx-0 d-flex justify-content-center align-items-center">
-            <div className="col-md-6 p-4 rounded shadow bg-white">
+            <div className="col-md-12 p-4 rounded shadow bg-white">
               <h3>Add New Todo:</h3>
               <form onSubmit={handleSubmit} className="d-flex flex-column">
                 <label htmlFor="title">Title*</label>
@@ -67,7 +67,7 @@ const FormSection = ({ onSave , editTodo }) => {
                   id="priority"
                   name="priority"
                   value={priority}
-                  className="form-control mb-3"
+                  className="mb-3"
                   onChange={(e) => setPriority(e.target.value)}
                 >
                   <option value="High">High</option>
